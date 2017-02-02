@@ -34,12 +34,13 @@ class TicTacToe {
              return true;
         };
         for (var i = 0; i < this.fieldArr.length; i++) {
-            for (var j = 0; j < this.fieldArr.length[0]; j++) {
+            for (var j = 0; j < this.fieldArr[i].length; j++) {
                 if ((!this.fieldArr[i][j]) ) {
                     return false;
                 };
             };
         };
+        return true;
     };
 
     getWinner() {
@@ -54,26 +55,21 @@ class TicTacToe {
         ;
         for (var i = 0; i < this.fieldArr.length; i++) {
             for (var j = 0; j < this.fieldArr.length[0]; j++) {
-
                 if ((this.fieldArr[i][0] == this.fieldArr[i][1]) && (this.fieldArr[i][1] == this.fieldArr[i][2])) {
                     this.winner = this.fieldArr[i][0];
                     return;
-
-                }
-                ;
+                };
                 if ((this.fieldArr[0][j] == this.fieldArr[1][j]) && (this.fieldArr[1][j] == this.fieldArr[2][j])) {
                     this.winner = this.fieldArr[0][j];
                     return;
-                }
-            }
-            ;
-        }
-        ;
+                };
+            };
+        };
     };
 
     noMoreTurns() {
             for (var i = 0; i < this.fieldArr.length; i++) {
-                for (var j = 0; j < this.fieldArr.length[0]; j++) {
+                for (var j = 0; j < this.fieldArr[i].length; j++) {
                     if ((!this.fieldArr[i][j]) ) {
                         return false;
                     };
@@ -83,17 +79,11 @@ class TicTacToe {
     }
 
     isDraw() {
-        var responce;
-        for (var i = 0; i < this.fieldArr.length; i++) {
-            for (var j = 0; j < this.fieldArr.length[0]; j++) {
-                if ((!this.fieldArr[i][j]) ) {
-                    return false;
-                }
-            }
+        var responcenoMoreTurns = this.noMoreTurns();
+        if ((!this.winner) && responcenoMoreTurns) {
+            return true;
         };
-        for (var i = 0; i < this.fieldArr.length; i++) {
-
-        }
+        return false;
     }
 
     getFieldValue(rowIndex, colIndex) {
